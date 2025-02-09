@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon-32x32.png" type="image/x-icon">
+    <title>Game</title>
+    <style>
+        /* Reset dasar */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Dark background and space theme */
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #0a0a2a, #0d2b51);
+            color: #fff;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        /* Container utama untuk game */
+        
+        .game-container {
+            background: rgba(255, 255, 255, 0.1);
+            /* Transparent background */
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            backdrop-filter: blur(10px);
+            /* Blur background for the glass effect */
+            animation: fadeIn 1s ease-out;
+        }
+        /* Heading utama dengan efek neon */
+        
+        .game-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #00bfff;
+            /* Neon blue */
+            text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff;
+            animation: neonGlow 1.5s ease-in-out infinite alternate;
+        }
+        /* Paragraf */
+        
+        .game-container p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #cccccc;
+        }
+        /* Input dengan efek glow */
+        
+        .game-container input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            border: 2px solid #00bfff;
+            /* Neon blue */
+            border-radius: 5px;
+            background-color: transparent;
+            color: #00bfff;
+            /* Neon blue */
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .game-container input:focus {
+            border-color: #00bfff;
+            box-shadow: 0 0 15px #00bfff;
+        }
+        /* Tombol dengan efek neon */
+        
+        .game-container button {
+            background-color: transparent;
+            color: #00bfff;
+            /* Neon blue */
+            border: 2px solid #00bfff;
+            /* Neon blue */
+            border-radius: 5px;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 15px #00bfff;
+        }
+        
+        .game-container button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #00bfff, 0 0 50px #00bfff;
+        }
+        /* Hasil permainan */
+        
+        #result {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            width: 100%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        
+        .result.success {
+            background-color: rgba(21, 87, 38, 0.2);
+            color: #00bfff;
+            /* Neon blue */
+            border: 1px solid #00bfff;
+            /* Neon blue */
+            animation: pulse 1.5s infinite;
+        }
+        
+        .result.error {
+            background-color: rgba(120, 0, 0, 0.3);
+            color: #ff0033;
+            /* Tetap merah untuk kesalahan */
+            border: 1px solid #ff0033;
+        }
+        /* Animations */
+        
+        @keyframes neonGlow {
+            0% {
+                text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff, 0 0 15px #00bfff, 0 0 20px #00bfff;
+            }
+            50% {
+                text-shadow: 0 0 20px #00bfff, 0 0 30px #00bfff, 0 0 40px #00bfff, 0 0 50px #00bfff;
+            }
+            100% {
+                text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff, 0 0 15px #00bfff, 0 0 20px #00bfff;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .back-button {
+            position: fixed;
+            /* Tetap berada di pojok kiri atas, bahkan saat halaman di-scroll */
+            top: 0;
+            /* Tepat di bagian atas */
+            left: 0;
+            /* Tepat di bagian kiri */
+            padding: 10px 20px;
+            color: #fff;
+            background-color: transparent;
+            text-decoration: none;
+            border-radius: 0 5px 5px 0;
+            /* Membulatkan sudut kanan */
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        @media (max-width: 767px) {
+            .back-button {
+                padding: 8px 16px;
+                /* Kurangi ukuran padding */
+                font-size: 14px;
+                z-index: 101;
+                /* Kurangi ukuran font */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" class="back-button">← Back</a>
+
+    <div class="game-container">
+        <h1>Tebak Angka Der!</h1>
+        <p>Angka yang harus Anda tebak berada di antara 1 sampai 100.</p>
+        <P>Visit My Instagram : <a href="https://www.instagram.com/syafiq.attamimi?igsh=OWdhazAwMHdyNmk3" target="_blank" style="color: white;">syafiq.attamimi</a></P>
+        <input type="number" id="guess" placeholder="Masukkan tebakan anda" />
+        <button onclick="checkGuess()">Tebak!</button>
+        <div id="result" class="result"></div>
+        <button onclick="restartGame()">Mulai Lagi</button>
+    </div>
+
+
+    <script>
+        let secretNumber;
+        let attempts;
+
+        // Fungsi untuk memulai ulang permainan
+        function restartGame() {
+            secretNumber = Math.floor(Math.random() * 100) + 1; // Angka acak antara 1 dan 100
+            attempts = 0; // Reset percobaan
+            document.getElementById('result').innerHTML = '';
+            document.getElementById('guess').value = ''; // Kosongkan input
+            document.getElementById('guess').disabled = false;
+            document.querySelector('button').innerText = "Tebak!";
+        }
+
+        // Fungsi untuk mengecek tebakan
+        function checkGuess() {
+            let userGuess = parseInt(document.getElementById('guess').value);
+
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                document.getElementById('result').innerHTML = 'Tolong masukkan angka antara 1 dan 100!';
+                document.getElementById('result').className = 'result error';
+                return;
+            }
+
+            attempts++; // Increment jumlah percobaan
+
+            if (userGuess === secretNumber) {
+                document.getElementById('result').innerHTML = `Selamat! Tebakanmu tepat! 🎉: ${secretNumber} dalam ${attempts} percobaan!`;
+                document.getElementById('result').className = 'result success';
+                document.getElementById('guess').disabled = true; // Nonaktifkan input setelah menebak benar
+                document.querySelector('button').innerText = "Permainan Selesai!"; // Ubah teks tombol
+            } else if (userGuess < secretNumber) {
+                document.getElementById('result').innerHTML = 'Tebakanmu terlalu rendah! Coba lagi, masih ada kesempatan! 📉';
+                document.getElementById('result').className = 'result error';
+            } else {
+                document.getElementById('result').innerHTML = 'Tebakanmu terlalu tinggi! Coba lagi dengan angka yang lebih rendah! 📈';
+                document.getElementById('result').className = 'result error';
+            }
+        }
+
+        // Mulai permainan pertama kali
+        restartGame();
+    </script>
+</body>
+
+</html>

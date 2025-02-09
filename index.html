@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logonew.jpg" type="image/x-icon">
+    <title>Syafiq | Portofolio</title>
+    <!-- Meta Description -->
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="color-1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- style siwtcher -->
+    <link rel="stylesheet" href="color-1.css" class="alternate-style" title="color-1" disabled>
+    <link rel="stylesheet" href="color-2.css" class="alternate-style" title="color-2" disabled>
+    <link rel="stylesheet" href="color-3.css" class="alternate-style" title="color-3" disabled>
+    <link rel="stylesheet" href="color-4.css" class="alternate-style" title="color-4" disabled>
+    <link rel="stylesheet" href="color-5.css" class="alternate-style" title="color-5" disabled>
+
+    <link rel="stylesheet" href="style-switcher.css">
+    <link rel="stylesheet" href="ai.css">
+    <style>
+        /* animasi start */
+        
+        .intro {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: none;
+            overflow: hidden;
+        }
+        /* Background Animation */
+        
+        .background {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-color: white;
+        }
+        /* Logo Container */
+        
+        .lagi-container {
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: scale(0);
+            opacity: 0;
+        }
+        
+        .lagi {
+            width: 20vw;
+            /* Responsif width */
+            height: 20vw;
+            /* Responsif height */
+            max-width: 150px;
+            /* Maximum size */
+            max-height: 150px;
+            /* Maximum size */
+        }
+        /* Teks di bawah logo */
+        
+        .lagi-text {
+            margin-top: 2vh;
+            /* Responsif margin */
+            font-size: 3vw;
+            /* Responsif font size */
+            font-weight: bold;
+            color: black;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        /* Hidden Content */
+        
+        .hidden {
+            display: none;
+        }
+        /* Background Rotation */
+        
+        @keyframes rotateBackground {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        /* Media Queries for Small Screens */
+        
+        @media screen and (max-width: 768px) {
+            .lagi {
+                width: 30vw;
+                /* Smaller logos for smaller screens */
+                height: 30vw;
+                /* Adjust height as well */
+            }
+            .lagi-text {
+                font-size: 6vw;
+                /* Adjust text size for small screens */
+            }
+        }
+        /* Media Queries for Very Small Screens (Mobile) */
+        
+        @media screen and (max-width: 480px) {
+            .lagi {
+                width: 40vw;
+                /* Even smaller logos */
+                height: 40vw;
+                /* Adjust accordingly */
+            }
+            .lagi-text {
+                font-size: 8vw;
+                /* Bigger text for mobile */
+            }
+        }
+        /* animasi end */
+        
+        .aside .logo .logo-text-container {
+            display: flex;
+            /* Mengatur elemen dalam satu baris */
+            align-items: center;
+            /* Menyelaraskan elemen secara vertikal */
+        }
+        
+        .aside .logo .logo-left {
+            width: 50px;
+            /* Ukuran logo kiri */
+            height: 50px;
+            margin-right: 10px;
+            /* Memberikan jarak antara logo dan teks */
+        }
+        
+        .aside .logo .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: black;
+        }
+        /* Secara default, gambar di kelas .hero disembunyikan */
+        /* Secara default, gambar di dalam .hero img disembunyikan */
+        /* Secara default, gambar di dalam .hero img disembunyikan */
+        /* Secara default, gambar di dalam .hero img disembunyikan */
+        /* Secara default, gambar di dalam .hero img disembunyikan */
+        
+        .hero img {
+            display: none;
+        }
+        /* Menampilkan gambar hanya pada perangkat kecil (max-width: 768px) */
+        
+        @media (max-width: 768px) {
+            /* Mengatur kontainer .hero agar gambar berada di tengah */
+            .hero {
+                display: flex;
+                justify-content: center;
+                /* Menempatkan gambar di tengah secara horizontal */
+                align-items: center;
+                /* Menempatkan gambar di tengah secara vertikal */
+                height: 100vh;
+                /* margin-bottom: -370px;
+                margin-top: -230px; */
+                margin-bottom: -100%;
+                margin-top: -80%;
+                /* Menjamin kontainer hero mengisi layar penuh */
+            }
+            /* Mengatur gaya gambar */
+            .hero img {
+                display: block;
+                width: 270px;
+                height: 270px;
+                object-fit: cover;
+                border-radius: 50%;
+                border: 6px solid #00A0D2;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                box-shadow: 0 0 8px 3px rgba(0, 85, 255, 0.9);
+                /* Sesuaikan dengan #0055ff */
+            }
+            /* Efek hover untuk memperbesar gambar dan shadow */
+            .hero img:hover {
+                transform: scale(1.1);
+                /* Membesarkan gambar sedikit */
+                box-shadow: 0 0 20px 10px rgba(65, 105, 225, 1);
+                /* Meningkatkan efek cahaya neon dengan shadow tajam setelah hover */
+            }
+        }
+        /* Mengatur .buttons agar menggunakan flexbox */
+        /* Mengatur kontainer .buttons agar menggunakan flexbox */
+        
+        .buttons {
+            display: flex;
+            /* Menyusun gambar dalam barisan horizontal */
+            justify-content: center;
+            /* Menyusun gambar di tengah secara horizontal */
+            align-items: center;
+            /* Menyusun gambar di tengah secara vertikal */
+            gap: 20px;
+            /* Memberikan jarak antar gambar */
+            flex-wrap: wrap;
+            /* Membuat gambar teratur dan bisa pindah baris jika dibutuhkan */
+            margin: 20px 0;
+            /* Memberikan margin pada bagian atas dan bawah */
+        }
+        /* CSS untuk gambar HTML */
+        
+        .buttons .html {
+            width: 100px;
+            /* Menetapkan lebar gambar HTML */
+            height: 100px;
+            /* Menetapkan tinggi gambar HTML */
+            object-fit: contain;
+            /* Memastikan gambar tetap proporsional */
+            transition: transform 0.3s ease;
+            /* Menambahkan efek transisi saat hover */
+        }
+        /* CSS untuk gambar CSS */
+        
+        .buttons .css {
+            width: 113px;
+            /* Menetapkan lebar gambar CSS */
+            height: 113px;
+            /* Menetapkan tinggi gambar CSS */
+            object-fit: contain;
+            /* Memastikan gambar tetap proporsional */
+            transition: transform 0.3s ease;
+            /* Menambahkan efek transisi saat hover */
+        }
+        /* CSS untuk gambar JavaScript */
+        
+        .buttons .js {
+            width: 150px;
+            /* Menetapkan lebar gambar JavaScript */
+            height: 150px;
+            /* Menetapkan tinggi gambar JavaScript */
+            object-fit: contain;
+            /* Memastikan gambar tetap proporsional */
+            transition: transform 0.3s ease;
+            /* Menambahkan efek transisi saat hover */
+        }
+        /* CSS untuk gambar PHP */
+        
+        .buttons .php {
+            width: 130px;
+            /* Menetapkan lebar gambar PHP */
+            height: 130px;
+            /* Menetapkan tinggi gambar PHP */
+            object-fit: contain;
+            /* Memastikan gambar tetap proporsional */
+            transition: transform 0.3s ease;
+            /* Menambahkan efek transisi saat hover */
+        }
+        /* Efek saat hover pada gambar */
+        
+        .buttons img:hover {
+            transform: scale(1.1);
+            /* Memperbesar gambar sedikit saat hover */
+        }
+        
+        @media (max-width: 768px) {
+            .buttons .html {
+                width: 50px;
+                /* Menetapkan lebar gambar HTML */
+                height: 50px;
+                /* Menetapkan tinggi gambar HTML */
+                object-fit: contain;
+                /* Memastikan gambar tetap proporsional */
+                transition: transform 0.3s ease;
+                /* Menambahkan efek transisi saat hover */
+            }
+            /* CSS untuk gambar CSS */
+            .buttons .css {
+                width: 57px;
+                /* Menetapkan lebar gambar CSS */
+                height: 57px;
+                /* Menetapkan tinggi gambar CSS */
+                object-fit: contain;
+                /* Memastikan gambar tetap proporsional */
+                transition: transform 0.3s ease;
+                /* Menambahkan efek transisi saat hover */
+            }
+            /* CSS untuk gambar JavaScript */
+            .buttons .js {
+                width: 75px;
+                /* Menetapkan lebar gambar JavaScript */
+                height: 75px;
+                /* Menetapkan tinggi gambar JavaScript */
+                object-fit: contain;
+                /* Memastikan gambar tetap proporsional */
+                transition: transform 0.3s ease;
+                /* Menambahkan efek transisi saat hover */
+            }
+            /* CSS untuk gambar PHP */
+            .buttons .php {
+                width: 65px;
+                /* Menetapkan lebar gambar PHP */
+                height: 65px;
+                /* Menetapkan tinggi gambar PHP */
+                object-fit: contain;
+                /* Memastikan gambar tetap proporsional */
+                transition: transform 0.3s ease;
+                /* Menambahkan efek transisi saat hover */
+            }
+            /* Efek saat hover pada gambar */
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            animation: bounce 2s infinite;
+        }
+        
+        .whatsapp-float img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Opening Animation -->
+    <div class="intro">
+        <!-- Background Animation -->
+        <div class="background"></div>
+
+        <!-- Logo Animation -->
+        <div class="lagi-container">
+            <!-- Ganti teks dengan gambar logo -->
+            <img class="lagi" src="logonew.jpg" alt="Logo" style="text-align: center;">
+            <!-- Teks di bawah logo -->
+            <div class="lagi-text"><a href="#" style="color: black;"><span style=" font-family: 'Clicker Script', cursive; color: black;">Syafiq</span></a></div>
+        </div>
+    </div>
+    <div class="kantin hidden">
+
+
+        <!-- animasi start -->
+        <!-- animasi end -->
+        <!-- main container start -->
+        <div class="main-container">
+            <!-- aside start -->
+            <div class="aside">
+                <div class="logo">
+                    <a href="#">
+                        <div class="logo-text-container">
+                            <img src="logonew-removebg-preview.png" alt="Logo" class="logo-left">
+                            <span>Syafiq</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="nav-toggler">
+                    <span></span>
+                </div>
+                <ul class="nav">
+                    <li><a href="#home" class="active"><i class="fa fa-home"></i>Home</a></li>
+                    <li><a href="#about"><i class="fa fa-user"></i>About</a></li>
+                    <li><a href="#services"><i class="fa fa-list"></i>Services</a></li>
+                    <li><a href="#portfolio"><i class="fa fa-briefcase"></i>Portofolio</a></li>
+                    <li><a href="game.html"><i class="fa fa-gamepad"></i>My Game</a></li>
+                    <li><a href="#contact"><i class="fa fa-comments"></i>Contact</a></li>
+                </ul>
+            </div>
+            <!-- aside end -->
+            <!-- main content start -->
+            <div class="main-content">
+
+                <!-- home section start -->
+                <section class="home active section " id="home">
+
+                    <div class="container">
+                        <div class="hero padd-15">
+                            <img src="hero2.jpg" alt="">
+                        </div>
+                        <div class="row">
+
+                            <div class="home-info padd-15">
+
+                                <h3 class="hello">Hello, my name is <span class="name">Syafiq</span></h3>
+                                <h3 class="my-profession">I' m a <span class="typing"></span></h3>
+                                <p>Hallo 👋 Saya adalah siswa yang sedang mendalami dunia IT. Saya sangat menikmati setiap proses belajar tentang coding, baik itu untuk pengembangan web maupun aplikasi. Saya berharap dapat terus berkembang dan memberikan
+                                    yang terbaik dalam bidang ini.</p>
+                                <a href="https://saweria.co/Syafiqbamazruk" target="_blank" class="btn">Support Me</a>
+                            </div>
+                            <div class="home-img padd-15">
+                                <img src="hero.jpg" alt="">
+                            </div>
+
+                        </div>
+                    </div>
+
+                </section>
+                <!-- home section end -->
+
+                <!-- about section start -->
+                <section class="about section" id="about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="section-title padd-15">
+                                <h2>About Me</h2>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="about-content padd-15">
+                                <div class="row">
+                                    <div class="about-text padd-15">
+                                        <h3>I'm Syafiq and <span>web developer</span></h3>
+                                        <p>Saya Syafiq, saya sedang belajar banyak hal, terutama di dunia pengembangan aplikasi dan web. Saat ini, saya fokus untuk mendalami dunia programming web, menciptakan aplikasi dan website yang bermanfaat. Meskipun
+                                            saya masih dalam proses belajar, saya terus berusaha mengasah kemampuan saya agar bisa memberikan hasil yang terbaik.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="personal-info padd-15">
+                                        <div class="row">
+                                            <div class="info-item padd-15">
+                                                <p>Birthday : <span>14 Jan 2009</span></p>
+                                            </div>
+                                            <div class="info-item padd-15">
+                                                <p>Age : <span>15</span></p>
+                                            </div>
+                                            <div class="info-item padd-15">
+                                                <p>Instagram : <span><a href="https://www.instagram.com/syafiq.attamimi?igsh=OWdhazAwMHdyNmk3" target="_blank" style="color: white;">syafiq.attamimi</a></span></p>
+                                            </div>
+                                            <div class="info-item padd-15">
+
+                                                <p>Email : <span><a href="mailto:info@syafiqbamazruk.com">@syafiqbamazruk</a></span></p>
+                                            </div>
+                                            <div class="info-item padd-15">
+                                                <p>Focus Area : <span>Web & App Development</span></p>
+                                            </div>
+                                            <div class="info-item padd-15">
+                                                <p>Phone : <span>0878-7756-6677</span></p>
+                                            </div>
+                                            <div class="info-item padd-15">
+                                                <p>City : <span>Cirebon</span></p>
+                                            </div>
+                                            <div class="info-item padd-15">
+                                                <p>School : <span>Smk Informatika Al-irsyad</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="buttons">
+
+                                                <img src="HTML5_badge.png" alt="" class="html">
+                                                <img src="logo-css-3-1536.png" alt="" class="css">
+                                                <img src="javascript-logo-0.png" alt="" class="js">
+                                                <img src="PHP_logo.png" alt="" class="php">
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="skills padd-15">
+                                        <div class="row">
+                                            <!-- Skill JS -->
+                                            <div class="skill-item padd-15">
+                                                <h5>HTML & CSS</h5>
+                                                <div class="progress">
+                                                    <div class="progress-in" style="width: 80%;"></div>
+                                                    <div class="skill-percent">80%</div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Skill HTML -->
+                                            <div class="skill-item padd-15">
+                                                <h5>JS</h5>
+                                                <div class="progress">
+                                                    <div class="progress-in" style="width: 36%;"></div>
+                                                    <div class="skill-percent">36%</div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Skill CSS -->
+                                            <div class="skill-item padd-15">
+                                                <h5>FIGMA</h5>
+                                                <div class="progress">
+                                                    <div class="progress-in" style="width: 76%;"></div>
+                                                    <div class="skill-percent">76%</div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Skill Bootstrap -->
+                                            <div class="skill-item padd-15">
+                                                <h5>English</h5>
+                                                <div class="progress">
+                                                    <div class="progress-in" style="width: 83%;"></div>
+                                                    <div class="skill-percent">83%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- Education Section -->
+                                    <div class="education padd-15">
+                                        <h3 class="title">Education</h3>
+                                        <div class="row">
+                                            <div class="timeline-box padd-15">
+                                                <div class="timeline shadow-dark">
+                                                    <!-- Timeline item 1 -->
+                                                    <div class="timeline-item">
+                                                        <div class="circle-dot"></div>
+                                                        <div class="timeline-content">
+                                                            <h3 class="timeline-date"><i class="fa fa-calendar"></i>2015 - 2016</h3>
+                                                            <h4 class="timeline-title">TK</h4>
+                                                            <p class="timeline-text">TK adalah tempat belajar pertama, di mana siswa mulai mengenal hal-hal dasar seperti membaca, menulis, berhitung, serta belajar berinteraksi dengan teman-teman.</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Timeline item 2 -->
+                                                    <div class="timeline-item">
+                                                        <div class="circle-dot"></div>
+                                                        <div class="timeline-content">
+                                                            <h3 class="timeline-date"><i class="fa fa-calendar"></i>2016 - 2021</h3>
+                                                            <h4 class="timeline-title">SD</h4>
+                                                            <p class="timeline-text">SD adalah tempat untuk belajar pelajaran dasar seperti matematika, bahasa Indonesia, dan ilmu pengetahuan. Di sini, siswa mulai mempelajari banyak hal baru dan mengembangkan kemampuan akademik
+                                                                mereka.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Timeline item 3 -->
+                                                    <div class="timeline-item">
+                                                        <div class="circle-dot"></div>
+                                                        <div class="timeline-content">
+                                                            <h3 class="timeline-date"><i class="fa fa-calendar"></i>2021 - 2024</h3>
+                                                            <h4 class="timeline-title">SMP</h4>
+                                                            <p class="timeline-text">SMP adalah jenjang pendidikan yang lebih fokus pada pelajaran yang lebih mendalam dan kompleks. Di sini, siswa mempersiapkan diri untuk melanjutkan ke pendidikan tingkat lebih tinggi, seperti
+                                                                SMA atau SMK.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- Experience Section -->
+                                    <div class="experience padd-15 col-md-6">
+                                        <h3 class="title">Experience</h3>
+
+                                        <div class="timeline-box padd-15" style=" padding: 0; margin: 0;">
+                                            <div class="timeline shadow-dark">
+                                                <!-- Timeline item 1 (duplicate of Education) -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <div class="timeline-content">
+                                                        <h3 class="timeline-date"><i class="fa fa-calendar"></i>2019</h3>
+                                                        <h4 class="timeline-title">Creative Drawing Contest</h4>
+                                                        <p class="timeline-text">Saya terpilih untuk mengikuti Creative Drawing Contest dan akhirnya berhasil meraih Juara 2. Senang sekali bisa ikut lomba ini dan menunjukkan hasil karya saya. Meskipun banyak peserta hebat, saya
+                                                            bersyukur bisa mendapatkan penghargaan dan pengalaman berharga dari lomba ini.</p>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Timeline item 2 (duplicate of Education) -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <div class="timeline-content">
+                                                        <h3 class="timeline-date"><i class="fa fa-calendar"></i>2024</h3>
+                                                        <h4 class="timeline-title">Business Web Development Project</h4>
+                                                        <p class="timeline-text">Saya telah menyelesaikan Business Web Development Project untuk sebuah perusahaan, dengan fokus pada bagian front-end. Saya merancang dan membangun website yang responsif dan mudah digunakan, disesuaikan
+                                                            dengan merek perusahaan. Website ini kini sudah aktif dan memperkuat kehadiran online perusahaan.</p>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Timeline item 3 (duplicate of Education) -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                </section>
+                <!-- about section end -->
+                <!-- Services section start -->
+                <section class="services section " id="services">
+                    <div class="container">
+                        <div class="row">
+                            <div class="section-title padd-15">
+                                <h2>services</h2>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- service item start -->
+                            <div class="service-item padd-15">
+                                <div class="service-item-inner">
+                                    <div class="icon">
+                                        <i class="fa fa-globe"></i>
+                                    </div>
+                                    <h4>Landing page </h4>
+                                    <p>Buatlah kesan pertama yang baik dengan Landing Page yang profesional dan menarik</p>
+                                </div>
+                            </div>
+                            <!-- service item end -->
+                            <!-- service item start -->
+                            <div class="service-item padd-15">
+                                <div class="service-item-inner">
+                                    <div class="icon">
+                                        <i class="fa fa-mobile-alt"></i>
+                                    </div>
+                                    <h4>Mobile Friendly</h4>
+                                    <p>Website yang saya buat sudah Mobile Friendly dan responsive.Sehingga tampilan website anda akan menyesuaikan seluruh perangkat</p>
+                                </div>
+                            </div>
+                            <!-- service item end -->
+                            <!-- service item start -->
+                            <div class="service-item padd-15">
+                                <div class="service-item-inner">
+                                    <div class="icon">
+                                        <i class="fa fa-laptop-code"></i>
+                                    </div>
+                                    <h4>Design Modern 2025</h4>
+                                    <p>Buatlah web Anda dengan futuristik dan modern, sesuai dengan tren terbaru di tahun 2025</p>
+                                </div>
+                            </div>
+                            <!-- service item end -->
+                            <!-- service item start -->
+                            <div class="service-item padd-15">
+                                <div class="service-item-inner">
+                                    <div class="icon">
+                                        <i class="fa fa-magic"></i>
+                                    </div>
+                                    <h4>Design Menarik</h4>
+                                    <p>Dapatkan desain yang menarik dan profesional, meningkatkan kesan pertama pengunjung website Anda</p>
+                                </div>
+                            </div>
+                            <!-- service item end -->
+                            <!-- service item start -->
+                            <div class="service-item padd-15">
+                                <div class="service-item-inner">
+                                    <div class="icon">
+                                        <i class="fa fa-search"></i>
+                                    </div>
+                                    <h4>SEO Friendly</h4>
+                                    <p>Semua Website yang saya buat sudah mengikuti kaidah SEO (Search Engine Optimization),sehingga bisnis Anda dapat lebih mudah ditemukan di mesin pencari</p>
+                                </div>
+                            </div>
+                            <!-- service item end -->
+                            <!-- service item start -->
+                            <div class="service-item padd-15">
+                                <div class="service-item-inner">
+                                    <div class="icon">
+                                        <i class="fa fa-user-shield"></i>
+                                    </div>
+                                    <h4>Aman</h4>
+                                    <p>Website di tempat saya aman dan data Anda terlindungi</p>
+                                </div>
+                            </div>
+                            <!-- service item end -->
+
+                        </div>
+                    </div>
+                </section>
+                <!-- Services section end -->
+                <!-- portfolio section start  -->
+                <section class="portfolio section " id="portfolio">
+                    <div class="container">
+                        <div class="row">
+                            <div class="section-title padd-15">
+                                <h2>portofolio</h2>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="portfolio-heading padd-15">
+                                <h2>my last projects :</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- portofolio item start -->
+                            <div class="portfolio-item padd-15">
+                                <div class="portfolio-item-inner shadow-dark">
+                                    <div class="portfolio-img">
+                                        <img src="newportofolio1.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- portofolio item end -->
+                            <!-- portofolio item start -->
+                            <div class="portfolio-item padd-15">
+                                <div class="portfolio-item-inner shadow-dark">
+                                    <div class="portfolio-img">
+                                        <img src="newportofolio2.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- portofolio item end -->
+                            <!-- portofolio item start -->
+                            <div class="portfolio-item padd-15">
+                                <div class="portfolio-item-inner shadow-dark">
+                                    <div class="portfolio-img">
+                                        <img src="newportofolio3.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- portofolio item end -->
+
+                            <!-- portofolio item start -->
+                            <div class="portfolio-item padd-15">
+                                <div class="portfolio-item-inner shadow-dark">
+                                    <div class="portfolio-img">
+                                        <video autoplay muted>
+                <source src="newportovideo (1).mp4" type="video/mp4">
+            </video>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- portofolio item end -->
+                            <!-- portofolio item start -->
+                            <div class="portfolio-item padd-15">
+                                <div class="portfolio-item-inner shadow-dark">
+                                    <div class="portfolio-img">
+                                        <video autoplay muted>
+                <source src="newportovideo (2).mp4" type="video/mp4">
+            </video>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- portofolio item end -->
+
+
+                        </div>
+                    </div>
+                </section>
+                <!-- portofolio section end -->
+                <!-- contact sectio start  -->
+                <section class="contact section" id="contact">
+                    <div class="container">
+                        <div class="row">
+                            <div class="section-title padd-15">
+                                <h2>contact Me</h2>
+
+                            </div>
+                        </div>
+                        <h3 class="contact-title padd-15">Have You Any Questions ?</h3>
+                        <h4 class="contact-sub-title padd-15">I'M AT YOUR SERVICES</h4>
+                        <div class="row">
+                            <!-- contact info start -->
+                            <div class="contact-info-item padd-15">
+                                <div class="icon"><i class="fa fa-phone"></i></div>
+                                <h4>Call Us On!</h4>
+                                <p>+62 878-7756-6677</p>
+                            </div>
+                            <!-- contact info end -->
+                            <!-- contact info start -->
+                            <div class="contact-info-item padd-15">
+                                <div class="icon"><i class="fa fa-map-marker-alt"></i></div>
+                                <h4>House</h4>
+                                <p>Kota Cirebon</p>
+                            </div>
+                            <!-- contact info end -->
+                            <!-- contact info start -->
+                            <div class="contact-info-item padd-15">
+                                <div class="icon"><i class="fa fa-envelope"></i></div>
+                                <h4>Email</h4>
+                                <p>@Syafiqbamazruk</p>
+                            </div>
+                            <!-- contact info end -->
+                            <!-- contact info start -->
+                            <div class="contact-info-item padd-15">
+                                <div class="icon"><i class="fa fa-instagram"></i></div>
+                                <h4>Instagram</h4>
+                                <p><a href="https://www.instagram.com/syafiq.attamimi?igsh=OWdhazAwMHdyNmk3" target="_blank" style="color: white;">syafiq.attamimi</a></p>
+                            </div>
+                            <!-- contact info end -->
+                        </div>
+
+                        <h3 class="contact-title padd-15">SEND ME AN EMAIL</h3>
+                        <h4 class="contact-sub-title padd-15">If you have any questions please contact me</h4>
+                        <!-- contact form  -->
+                        <div class="row">
+                            <form class="contact-form padd-15" id="contactForm">
+                                <div class="row">
+                                    <div class="form-item col-6 padd-15">
+                                        <div class="form-group">
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-item col-6 padd-15">
+                                        <div class="form-group">
+                                            <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <textarea name="message" id="message" class="form-control" placeholder="Message" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <a href="#" class="btn" id="sendMessageBtn">Send Message</a>
+                                    </div>
+                                </div>
+                            </form>
+
+
+                        </div>
+                    </div>
+
+
+                </section>
+                <!-- contact sectio end -->
+                </div>
+                <!-- main content end -->
+                </div>
+
+                <!-- main container end -->
+                <div class="style-switcher">
+                    <div class="style-switcher-toggler s-icon">
+                        <i class="fas fa-cog fa-spin"></i>
+                    </div>
+                    <div class="day-night s-icon">
+                        <i class="fas"></i>
+                    </div>
+                    <h4>theme colors</h4>
+                    <div class="colors">
+                        <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+                        <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+                        <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+                        <span class="color-4" onclick="setActiveStyle('color-4')"></span>
+                        <span class="color-5" onclick="setActiveStyle('color-5')"></span>
+                    </div>
+
+                </div>
+                <button id="chat-toggle"><img src="newlogai.png" alt="" id="chat-toggle"></button>
+
+                <div id="chatbot">
+                    <div id="chat-header">chat AI | syafiq</div>
+                    <div id="chat-messages"></div>
+                    <div id="chat-input">
+                        <input type="text" id="input-field" placeholder="Tanyakan sesuatu 'syafiq'... ">
+                        <button id="send-btn">Kirim</button>
+                    </div>
+                </div>
+                <audio id="send-sound" src="user (mp3cut.net).mp3"></audio>
+                <audio id="receive-sound" src="sendai (mp3cut.net).mp3"></audio>
+                </div>
+                <script src="ai.js"></script>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" referrerpolicy="no-referrer"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+                <script src="send.js"></script>
+                <script src="animasi.js"></script>
+                <script src="script.js"></script>
+                <script src="style-switcher.js"></script>
+</body>
+
+</html>

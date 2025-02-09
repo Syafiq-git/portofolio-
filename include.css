@@ -1,0 +1,64 @@
+.carousel {
+    display: none;
+}
+
+
+/* Media query: Tampilkan carousel di perangkat kecil */
+
+@media (max-width: 768px) {
+    .carousel {
+        display: block;
+        /* Tampilkan hanya di perangkat kecil */
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .carousel-track-kontainer {
+        overflow: hidden;
+        position: relative;
+    }
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    .carousel-imgg {
+        min-width: 100%;
+        height: auto;
+    }
+    .carousel-batin {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 2;
+    }
+    .carousel-batin-kiri {
+        left: 10px;
+    }
+    .carousel-batin-kanan {
+        right: 10px;
+    }
+    .carousel-nav {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .carousel-indicator {
+        width: 10px;
+        height: 10px;
+        margin: 5px;
+        border: none;
+        border-radius: 50%;
+        background: gray;
+        cursor: pointer;
+    }
+    .carousel-indicator.active {
+        background: black;
+    }
+}
